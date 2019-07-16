@@ -4,8 +4,9 @@ let fsp=fs.promises
     fsp.copyFile('license','dist/node/license')
     fsp.copyFile('main/EventEmmiter.mjs','dist/node/EventEmmiter.mjs')
     fsp.writeFile('dist/node/package.json',JSON.stringify({
-        name:'@anliting/event.mjs',
+        name:'@anliting/event-emmiter',
         version:'1.0.0',
+        main:'EventEmmiter.mjs',
     }))
     let[license,code]=await Promise.all([
         fsp.readFile('license','utf8'),
