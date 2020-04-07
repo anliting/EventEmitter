@@ -2,15 +2,15 @@ import fs from'fs'
 let fsp=fs.promises
 ;(async()=>{
     fsp.copyFile('license','dist/node/license')
-    fsp.copyFile('main/EventEmmiter.mjs','dist/node/EventEmmiter.mjs')
+    fsp.copyFile('main/EventEmitter.mjs','dist/node/EventEmitter.mjs')
     fsp.writeFile('dist/node/package.json',JSON.stringify({
-        name:'@anliting/event-emmiter',
+        name:'@anliting/event-emitter',
         version:'1.0.0',
-        main:'EventEmmiter.mjs',
+        main:'EventEmitter.mjs',
     }))
     let[license,code]=await Promise.all([
         fsp.readFile('license','utf8'),
-        fsp.readFile('main/EventEmmiter.mjs','utf8'),
+        fsp.readFile('main/EventEmitter.mjs','utf8'),
     ])
-    fsp.writeFile('dist/EventEmmiter.mjs',`/*${license}*/${code}`)
+    fsp.writeFile('dist/EventEmitter.mjs',`/*${license}*/${code}`)
 })()
